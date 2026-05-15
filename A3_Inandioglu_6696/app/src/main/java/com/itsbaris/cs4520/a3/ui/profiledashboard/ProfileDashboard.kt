@@ -29,18 +29,19 @@ fun ProfileDashboard() {
     var level by remember { mutableStateOf(1) }
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                Brush.verticalGradient(
-                    colors = listOf(
-                        MaterialTheme.colorScheme.background,
-                        MaterialTheme.colorScheme.surfaceDim,
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        colors =
+                            listOf(
+                                MaterialTheme.colorScheme.background,
+                                MaterialTheme.colorScheme.surfaceDim,
+                            ),
                     ),
-                ),
-            )
-            .verticalScroll(rememberScrollState())
-            .padding(16.dp),
+                ).verticalScroll(rememberScrollState())
+                .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {

@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.itsbaris.cs4520.a3.ui.theme.A3_Inandioglu_6696Theme
 import com.itsbaris.cs4520.a3.ui.profiledashboard.ProfileDashboard
+import com.itsbaris.cs4520.a3.ui.theme.A3_Inandioglu_6696Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

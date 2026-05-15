@@ -74,17 +74,19 @@ private fun AvatarBox() {
             painter = painterResource(R.drawable.ic_launcher_foreground),
             contentDescription = "Profile avatar",
             contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .fillMaxSize()
-                .clip(CircleShape),
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .clip(CircleShape),
         )
 
         Box(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .size(24.dp)
-                .clip(CircleShape)
-                .background(Color.Green),
+            modifier =
+                Modifier
+                    .align(Alignment.BottomEnd)
+                    .size(24.dp)
+                    .clip(CircleShape)
+                    .background(Color.Green),
         )
     }
 }
