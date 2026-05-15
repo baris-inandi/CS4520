@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -56,6 +57,12 @@ internal fun UserInfoSection(
             onValueChange = onBioChange,
             label = { Text("Bio") },
             modifier = Modifier.fillMaxWidth(),
+        )
+
+        Text(
+            text = "${bio.length}/100",
+            color = if (bio.length > 90) Color.Red else MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.align(Alignment.End),
         )
     }
 }
