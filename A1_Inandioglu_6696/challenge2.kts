@@ -1,4 +1,7 @@
-fun displayName(firstName: String?, lastName: String?): String {
+fun displayName(
+    firstName: String?,
+    lastName: String?,
+): String {
     val first = firstName?.trim()?.takeIf { it.isNotEmpty() }
     val last = lastName?.trim()?.takeIf { it.isNotEmpty() }
 

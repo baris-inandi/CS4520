@@ -12,13 +12,14 @@ suspend fun fetchForecastSummary(): String {
     return "Rain expected tomorrow"
 }
 
-fun main() = runBlocking {
-    val startTime = System.currentTimeMillis()
+fun main() =
+    runBlocking {
+        val startTime = System.currentTimeMillis()
 
-    val currentWeather = async { fetchCurrentWeather() }
-    val forecastSummary = async { fetchForecastSummary() }
+        val currentWeather = async { fetchCurrentWeather() }
+        val forecastSummary = async { fetchForecastSummary() }
 
-    println(currentWeather.await())
-    println(forecastSummary.await())
-    println("Elapsed time: ${System.currentTimeMillis() - startTime} ms")
-}
+        println(currentWeather.await())
+        println(forecastSummary.await())
+        println("Elapsed time: ${System.currentTimeMillis() - startTime} ms")
+    }

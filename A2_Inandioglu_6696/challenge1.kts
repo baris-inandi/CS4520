@@ -1,7 +1,7 @@
 data class WeatherForecast(
     val city: String,
     val condition: String,
-    val tempC: Double
+    val tempC: Double,
 )
 
 fun main() {

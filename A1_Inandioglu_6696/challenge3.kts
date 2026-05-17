@@ -1,4 +1,8 @@
-fun shippingCost(weightKg: Double, express: Boolean = false, memberDiscount: Boolean = false): Double {
+fun shippingCost(
+    weightKg: Double,
+    express: Boolean = false,
+    memberDiscount: Boolean = false,
+): Double {
     var cost = 4.99 + (1.20 * weightKg)
 
     if (express) {
@@ -24,9 +28,9 @@ fun main() {
                 shippingCost(
                     weightKg = weightKg,
                     express = true,
-                    memberDiscount = true
-                )
+                    memberDiscount = true,
+                ),
             )
-        }"
+        }",
     )
 }

@@ -1,20 +1,24 @@
 fun ticketPrice(age: Int): Double {
-    val price = if (age < 5) {
-        0.0
-    } else if (age <= 12) {
-        8.50
-    } else if (age <= 17) {
-        11.00
-    } else if (age <= 64) {
-        14.50
-    } else {
-        10.00
-    }
+    val price =
+        if (age < 5) {
+            0.0
+        } else if (age <= 12) {
+            8.50
+        } else if (age <= 17) {
+            11.00
+        } else if (age <= 64) {
+            14.50
+        } else {
+            10.00
+        }
 
     return price
 }
 
-fun ticketSummary(name: String, age: Int): String {
+fun ticketSummary(
+    name: String,
+    age: Int,
+): String {
     val price = ticketPrice(age)
     val priceText = if (price == 0.0) "FREE" else "\$${"%.2f".format(price)}"
 
