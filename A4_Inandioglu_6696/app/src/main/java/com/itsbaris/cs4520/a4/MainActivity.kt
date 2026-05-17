@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.itsbaris.cs4520.a4.ui.profiledashboard.ProfileDashboard
+import com.itsbaris.cs4520.a4.ui.navigation.ProfileNavigation
 import com.itsbaris.cs4520.a4.ui.theme.A4_Inandioglu_6696Theme
 
 class MainActivity : ComponentActivity() {
@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             A4_Inandioglu_6696Theme {
-                ProfileDashboard()
+                ProfileNavigation()
             }
         }
     }
