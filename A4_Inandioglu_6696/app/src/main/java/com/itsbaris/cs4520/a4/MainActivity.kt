@@ -1,16 +1,11 @@
 package com.itsbaris.cs4520.a4
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.itsbaris.cs4520.a4.ui.profiledashboard.ProfileDashboard
 import com.itsbaris.cs4520.a4.ui.theme.A4_Inandioglu_6696Theme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +14,23 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             A4_Inandioglu_6696Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                ProfileDashboard()
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    override fun onResume() {
+        super.onResume()
+        Log.i("Lifecycle", "App returned to foreground!")
+    }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    A4_Inandioglu_6696Theme {
-        Greeting("Android")
+    override fun onStop() {
+        super.onStop()
+        Log.w("Lifecycle", "App sent to background!")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.w("Lifecycle", "App destroyed!")
     }
 }

@@ -24,4 +24,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "A4_Inandioglu_6696"
 include(":app")
- 
