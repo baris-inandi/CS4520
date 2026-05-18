@@ -71,6 +71,32 @@ fun CompleteHomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
+            Avatar(profile = profile, size = 112)
+
+            Text(
+                text = profile.name,
+                style = MaterialTheme.typography.headlineMedium,
+            )
+
+            if (profile.bio.isNotBlank()) {
+                Text(
+                    text = profile.bio,
+                    modifier = Modifier.fillMaxWidth(),
+                    style = MaterialTheme.typography.bodyLarge,
+                    textAlign = TextAlign.Center,
+                )
+            }
+
+            Spacer(modifier = Modifier.height(4.dp))
+            Button(onClick = onCustomize) {
+                Text("Customize")
+            }
+
+            Text(
+                text = "Previews",
+                style = MaterialTheme.typography.titleMedium,
+            )
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -94,28 +120,6 @@ fun CompleteHomeScreen(
                 ) {
                     Text("Share")
                 }
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
-            Avatar(profile = profile, size = 112)
-
-            Text(
-                text = profile.name,
-                style = MaterialTheme.typography.headlineMedium,
-            )
-
-            if (profile.bio.isNotBlank()) {
-                Text(
-                    text = profile.bio,
-                    modifier = Modifier.fillMaxWidth(),
-                    style = MaterialTheme.typography.bodyLarge,
-                    textAlign = TextAlign.Center,
-                )
-            }
-
-            Spacer(modifier = Modifier.height(4.dp))
-            Button(onClick = onCustomize) {
-                Text("Customize")
             }
         }
     }
