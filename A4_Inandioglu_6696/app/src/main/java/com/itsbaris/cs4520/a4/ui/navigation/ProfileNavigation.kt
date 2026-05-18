@@ -3,7 +3,8 @@ package com.itsbaris.cs4520.a4.ui.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.mapSaver
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
@@ -18,9 +19,31 @@ import com.itsbaris.cs4520.a4.ui.screens.preview.FullPreviewScreen
 import com.itsbaris.cs4520.a4.ui.screens.preview.ShareablePreviewScreen
 import com.itsbaris.cs4520.a4.ui.theme.A4_Inandioglu_6696Theme
 
+private val ProfileSaver =
+    mapSaver(
+        save = { profile: Profile ->
+            mapOf(
+                "name" to profile.name,
+                "bio" to profile.bio,
+                "email" to profile.email,
+                "level" to profile.level,
+                "showOnline" to profile.showOnline,
+            )
+        },
+        restore = { saved ->
+            Profile(
+                name = saved["name"] as String,
+                bio = saved["bio"] as String,
+                email = saved["email"] as String,
+                level = saved["level"] as Int,
+                showOnline = saved["showOnline"] as Boolean,
+            )
+        },
+    )
+
 @Composable
 fun ProfileNavigation() {
-    var profile by remember { mutableStateOf(Profile()) }
+    var profile by rememberSaveable(stateSaver = ProfileSaver) { mutableStateOf(Profile()) }
     val navController = rememberNavController()
 
     NavHost(

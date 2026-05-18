@@ -28,7 +28,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,11 +45,11 @@ fun EditInfoScreen(
     onSave: (Profile) -> Unit,
     onCancel: () -> Unit,
 ) {
-    var name by remember(initial) { mutableStateOf(initial.name) }
-    var bio by remember(initial) { mutableStateOf(initial.bio) }
-    var email by remember(initial) { mutableStateOf(initial.email) }
-    var levelText by remember(initial) { mutableStateOf(initial.level.toString()) }
-    var showDiscardDialog by remember { mutableStateOf(false) }
+    var name by rememberSaveable(initial.name) { mutableStateOf(initial.name) }
+    var bio by rememberSaveable(initial.bio) { mutableStateOf(initial.bio) }
+    var email by rememberSaveable(initial.email) { mutableStateOf(initial.email) }
+    var levelText by rememberSaveable(initial.level) { mutableStateOf(initial.level.toString()) }
+    var showDiscardDialog by rememberSaveable { mutableStateOf(false) }
 
     val parsedLevel = levelText.toIntOrNull()
     val isNameError = name.isBlank()

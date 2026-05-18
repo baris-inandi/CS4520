@@ -25,7 +25,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -41,8 +41,8 @@ fun CustomizeScreen(
     onSave: (Profile) -> Unit,
     onCancel: () -> Unit,
 ) {
-    var showOnline by remember(initial) { mutableStateOf(initial.showOnline) }
-    var showResetDialog by remember { mutableStateOf(false) }
+    var showOnline by rememberSaveable(initial.showOnline) { mutableStateOf(initial.showOnline) }
+    var showResetDialog by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
