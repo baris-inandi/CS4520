@@ -5,6 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -15,6 +16,7 @@ import com.itsbaris.cs4520.a4.ui.screens.home.HomeScreen
 import com.itsbaris.cs4520.a4.ui.screens.preview.CompactPreviewScreen
 import com.itsbaris.cs4520.a4.ui.screens.preview.FullPreviewScreen
 import com.itsbaris.cs4520.a4.ui.screens.preview.ShareablePreviewScreen
+import com.itsbaris.cs4520.a4.ui.theme.A4_Inandioglu_6696Theme
 
 @Composable
 fun ProfileNavigation() {
@@ -78,5 +80,13 @@ fun ProfileNavigation() {
                 onBack = { navController.popBackStack() },
             )
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ProfileNavigationPreview() {
+    A4_Inandioglu_6696Theme {
+        ProfileNavigation()
     }
 }
