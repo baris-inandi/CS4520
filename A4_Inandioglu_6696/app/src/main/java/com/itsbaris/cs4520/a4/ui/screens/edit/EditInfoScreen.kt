@@ -11,7 +11,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,9 +31,11 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.itsbaris.cs4520.a4.R
 import com.itsbaris.cs4520.a4.model.Profile
 import com.itsbaris.cs4520.a4.ui.theme.A4_Inandioglu_6696Theme
 
@@ -56,11 +57,14 @@ fun EditInfoScreen(
     val isEmailError = email.isNotBlank() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()
     val isLevelError = parsedLevel == null || parsedLevel !in 1..100
     val isValid = !isNameError && !isEmailError && !isLevelError
-    val hasUnsavedChanges =
-        name != initial.name ||
-            bio != initial.bio ||
-            email != initial.email ||
-            levelText != initial.level.toString()
+    val draftProfile =
+        initial.copy(
+            name = name,
+            bio = bio,
+            email = email,
+            level = parsedLevel ?: 0,
+        )
+    val hasUnsavedChanges = draftProfile != initial
 
     fun requestCancel() {
         if (hasUnsavedChanges) {
@@ -81,7 +85,7 @@ fun EditInfoScreen(
                 navigationIcon = {
                     IconButton(onClick = { requestCancel() }) {
                         Icon(
-                            imageVector = Icons.Filled.ArrowBack,
+                            painter = painterResource(R.drawable.ic_arrow_back),
                             contentDescription = "Back",
                         )
                     }
@@ -101,7 +105,7 @@ fun EditInfoScreen(
                                 name = name.trim(),
                                 bio = bio,
                                 email = email.trim(),
-                                level = parsedLevel ?: initial.level,
+                                level = levelText.toIntOrNull()?.coerceIn(1, 100) ?: initial.level,
                             ),
                         )
                     },

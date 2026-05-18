@@ -1,5 +1,6 @@
 package com.itsbaris.cs4520.a4.ui.navigation
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,6 +20,8 @@ import com.itsbaris.cs4520.a4.ui.screens.preview.FullPreviewScreen
 import com.itsbaris.cs4520.a4.ui.screens.preview.ShareablePreviewScreen
 import com.itsbaris.cs4520.a4.ui.theme.A4_Inandioglu_6696Theme
 
+private const val PREVIEW_ROUTE_TAG = "PreviewRoute"
+
 private val ProfileSaver =
     mapSaver(
         save = { profile: Profile ->
@@ -32,11 +35,11 @@ private val ProfileSaver =
         },
         restore = { saved ->
             Profile(
-                name = saved["name"] as String,
-                bio = saved["bio"] as String,
-                email = saved["email"] as String,
-                level = saved["level"] as Int,
-                showOnline = saved["showOnline"] as Boolean,
+                name = saved["name"] as? String ?: "",
+                bio = saved["bio"] as? String ?: "",
+                email = saved["email"] as? String ?: "",
+                level = saved["level"] as? Int ?: 1,
+                showOnline = saved["showOnline"] as? Boolean ?: true,
             )
         },
     )
@@ -55,9 +58,18 @@ fun ProfileNavigation() {
                 profile = profile,
                 onEditInfo = { navController.navigate(EditInfoRoute) },
                 onCustomize = { navController.navigate(CustomizeRoute) },
-                onCompactPreview = { navController.navigate(CompactPreviewRoute) },
-                onFullPreview = { navController.navigate(FullPreviewRoute) },
-                onShareablePreview = { navController.navigate(ShareablePreviewRoute) },
+                onCompactPreview = {
+                    Log.i(PREVIEW_ROUTE_TAG, "mode=Compact")
+                    navController.navigate(CompactPreviewRoute)
+                },
+                onFullPreview = {
+                    Log.i(PREVIEW_ROUTE_TAG, "mode=Full")
+                    navController.navigate(FullPreviewRoute)
+                },
+                onShareablePreview = {
+                    Log.i(PREVIEW_ROUTE_TAG, "mode=Share")
+                    navController.navigate(ShareablePreviewRoute)
+                },
             )
         }
 
