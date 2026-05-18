@@ -1,4 +1,4 @@
-package com.itsbaris.cs4520.a4.ui.common
+package com.itsbaris.cs4520.a4.ui.commons
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

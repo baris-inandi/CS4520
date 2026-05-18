@@ -31,7 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.itsbaris.cs4520.a4.model.Profile
-import com.itsbaris.cs4520.a4.ui.common.Avatar
+import com.itsbaris.cs4520.a4.ui.commons.Avatar
 import com.itsbaris.cs4520.a4.ui.theme.A4_Inandioglu_6696Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
