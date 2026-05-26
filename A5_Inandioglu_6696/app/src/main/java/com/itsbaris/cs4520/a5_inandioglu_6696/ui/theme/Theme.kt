@@ -34,6 +34,11 @@ private val LightColorScheme =
      */
     )
 
+/**
+ * 1. What: Applies the app's Material theme and color scheme.
+ * 2. Who: Called by MainActivity and Compose previews.
+ * 3. When: Executed whenever app UI is composed.
+ */
 @Composable
 fun A5_Inandioglu_6696Theme(
     darkTheme: Boolean = isSystemInDarkTheme(),
