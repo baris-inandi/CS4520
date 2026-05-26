@@ -194,7 +194,7 @@ fun TaskItem(
             IconButton(onClick = { onRemindTask(task) }) {
                 Icon(
                     painter = painterResource(R.drawable.ic_reminder),
-                    contentDescription = "Remind me about ${task.name}",
+                    contentDescription = "Remind Me: ${task.name}",
                     modifier = Modifier.size(24.dp),
                 )
             }

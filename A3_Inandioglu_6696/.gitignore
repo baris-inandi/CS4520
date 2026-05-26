@@ -350,4 +350,5 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/kotlin,jetbrains+all,visualstudiocode,macos,windows,linux,java,gradle,maven
 **/ignore/
 **/.idea/
+**/.kotlin/
 **/local.properties
