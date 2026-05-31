@@ -4,47 +4,26 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.activity.viewModels
+import com.itsbaris.cs4520.a6.navigation.ContactNavigation
 import com.itsbaris.cs4520.a6.ui.theme.A6_Inandioglu_6696Theme
+import com.itsbaris.cs4520.a6.viewmodel.ContactViewModel
 
 class MainActivity : ComponentActivity() {
+    private val contactViewModel: ContactViewModel by viewModels()
+
+    /**
+     * 1. What: Initializes the activity and displays the contact app content.
+     * 2. Who: Called by the Android framework when MainActivity starts.
+     * 3. When: Runs once for this activity instance during app launch.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             A6_Inandioglu_6696Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding),
-                    )
-                }
+                ContactNavigation(contactViewModel = contactViewModel)
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(
-    name: String,
-    modifier: Modifier = Modifier,
-) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier,
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    A6_Inandioglu_6696Theme {
-        Greeting("Android")
     }
 }
