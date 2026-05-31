@@ -60,11 +60,12 @@ fun ContactDetailScreen(
                         fontWeight = FontWeight.Bold,
                     )
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFFD7ECFF),
-                    titleContentColor = MaterialTheme.colorScheme.primary,
-                    navigationIconContentColor = MaterialTheme.colorScheme.primary,
-                ),
+                colors =
+                    TopAppBarDefaults.topAppBarColors(
+                        containerColor = Color(0xFFD7ECFF),
+                        titleContentColor = MaterialTheme.colorScheme.primary,
+                        navigationIconContentColor = MaterialTheme.colorScheme.primary,
+                    ),
             )
         },
     ) { innerPadding ->
@@ -90,10 +91,11 @@ private fun ContactDetailContent(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(24.dp),
+        modifier =
+            modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Card(
@@ -174,15 +176,16 @@ private fun MissingContactContent(modifier: Modifier = Modifier) {
 private fun ContactDetailScreenPreview() {
     A6_Inandioglu_6696Theme {
         ContactDetailScreen(
-            contact = Contact(
-                name = "Jane Doe",
-                phone = "6175551234",
-                phoneType = "Mobile",
-                email = "jane@example.com",
-                streetAddress = "1 College Ave",
-                cityState = "Boston, MA",
-                zipCode = "02115",
-            ),
+            contact =
+                Contact(
+                    name = "Jane Doe",
+                    phone = "6175551234",
+                    phoneType = "Mobile",
+                    email = "jane@example.com",
+                    streetAddress = "1 College Ave",
+                    cityState = "Boston, MA",
+                    zipCode = "02115",
+                ),
             onBack = {},
         )
     }

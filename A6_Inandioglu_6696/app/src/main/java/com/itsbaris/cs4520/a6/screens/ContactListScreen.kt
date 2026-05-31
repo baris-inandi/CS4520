@@ -62,10 +62,11 @@ fun ContactListScreen(
                         fontWeight = FontWeight.Bold,
                     )
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFFD7ECFF),
-                    titleContentColor = MaterialTheme.colorScheme.primary,
-                ),
+                colors =
+                    TopAppBarDefaults.topAppBarColors(
+                        containerColor = Color(0xFFD7ECFF),
+                        titleContentColor = MaterialTheme.colorScheme.primary,
+                    ),
             )
         },
         floatingActionButton = {
@@ -81,9 +82,10 @@ fun ContactListScreen(
             EmptyContactList(modifier = Modifier.padding(innerPadding))
         } else {
             LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding),
+                modifier =
+                    Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding),
                 contentPadding = PaddingValues(top = 12.dp, bottom = 96.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
@@ -152,18 +154,20 @@ fun SwipeableContactRow(
 
     SwipeToDismissBox(
         state = dismissState,
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
         enableDismissFromStartToEnd = false,
         enableDismissFromEndToStart = true,
         backgroundContent = {
             Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(MaterialTheme.colorScheme.errorContainer)
-                    .padding(end = 24.dp),
+                modifier =
+                    Modifier
+                        .fillMaxSize()
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(MaterialTheme.colorScheme.errorContainer)
+                        .padding(end = 24.dp),
                 contentAlignment = Alignment.CenterEnd,
             ) {
                 Icon(
@@ -200,9 +204,10 @@ fun ContactCard(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(20.dp),
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
@@ -252,17 +257,18 @@ private fun ContactListScreenEmptyPreview() {
 private fun ContactListScreenPopulatedPreview() {
     A6_Inandioglu_6696Theme {
         ContactListScreen(
-            contacts = listOf(
-                Contact(
-                    name = "asdf",
-                    phone = "9805555555",
-                    phoneType = "Home",
-                    email = "asf@gh.fg",
-                    streetAddress = "123 Main St",
-                    cityState = "Boston, MA",
-                    zipCode = "02115",
+            contacts =
+                listOf(
+                    Contact(
+                        name = "asdf",
+                        phone = "9805555555",
+                        phoneType = "Home",
+                        email = "asf@gh.fg",
+                        streetAddress = "123 Main St",
+                        cityState = "Boston, MA",
+                        zipCode = "02115",
+                    ),
                 ),
-            ),
             onAddContact = {},
             onContactClick = {},
             onDeleteContact = {},
@@ -281,15 +287,16 @@ private fun ContactCardPreview() {
     A6_Inandioglu_6696Theme {
         Box(modifier = Modifier.padding(16.dp)) {
             ContactCard(
-                contact = Contact(
-                    name = "Jane Doe",
-                    phone = "6175551234",
-                    phoneType = "Mobile",
-                    email = "jane@example.com",
-                    streetAddress = "1 College Ave",
-                    cityState = "Boston, MA",
-                    zipCode = "02115",
-                ),
+                contact =
+                    Contact(
+                        name = "Jane Doe",
+                        phone = "6175551234",
+                        phoneType = "Mobile",
+                        email = "jane@example.com",
+                        streetAddress = "1 College Ave",
+                        cityState = "Boston, MA",
+                        zipCode = "02115",
+                    ),
                 onClick = {},
             )
         }

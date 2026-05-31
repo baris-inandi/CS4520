@@ -13,9 +13,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
-import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -96,14 +96,15 @@ fun AddContactScreen(
                     TextButton(
                         onClick = {
                             focusManager.clearFocus()
-                            val validationError = validateContactForm(
-                                name = name,
-                                phone = phone,
-                                email = email,
-                                streetAddress = streetAddress,
-                                cityState = cityState,
-                                zipCode = zipCode,
-                            )
+                            val validationError =
+                                validateContactForm(
+                                    name = name,
+                                    phone = phone,
+                                    email = email,
+                                    streetAddress = streetAddress,
+                                    cityState = cityState,
+                                    zipCode = zipCode,
+                                )
 
                             if (validationError == null) {
                                 onSaveContact(
@@ -130,21 +131,23 @@ fun AddContactScreen(
                         Text(text = "Save")
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFFD7ECFF),
-                    titleContentColor = MaterialTheme.colorScheme.primary,
-                    navigationIconContentColor = MaterialTheme.colorScheme.primary,
-                    actionIconContentColor = MaterialTheme.colorScheme.primary,
-                ),
+                colors =
+                    TopAppBarDefaults.topAppBarColors(
+                        containerColor = Color(0xFFD7ECFF),
+                        titleContentColor = MaterialTheme.colorScheme.primary,
+                        navigationIconContentColor = MaterialTheme.colorScheme.primary,
+                        actionIconContentColor = MaterialTheme.colorScheme.primary,
+                    ),
             )
         },
     ) { innerPadding ->
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .verticalScroll(rememberScrollState())
-                .padding(24.dp),
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+                    .verticalScroll(rememberScrollState())
+                    .padding(24.dp),
             verticalArrangement = Arrangement.spacedBy(18.dp),
         ) {
             Text(
@@ -255,9 +258,10 @@ fun PhoneTypeDropdown(
             label = { Text("Type") },
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             singleLine = true,
-            modifier = Modifier
-                .menuAnchor(type = ExposedDropdownMenuAnchorType.PrimaryNotEditable, enabled = true)
-                .fillMaxWidth(),
+            modifier =
+                Modifier
+                    .menuAnchor(type = ExposedDropdownMenuAnchorType.PrimaryNotEditable, enabled = true)
+                    .fillMaxWidth(),
         )
         ExposedDropdownMenu(
             expanded = expanded,
@@ -317,37 +321,51 @@ private fun validateContactForm(
     val trimmedZip = zipCode.trim()
 
     return when {
-        name.isBlank() -> ValidationError(
-            title = "Missing Name",
-            message = "Please enter the contact's full name.",
-        )
+        name.isBlank() -> {
+            ValidationError(
+                title = "Missing Name",
+                message = "Please enter the contact's full name.",
+            )
+        }
 
-        trimmedPhone.isBlank() || !trimmedPhone.all { character -> character.isDigit() } -> ValidationError(
-            title = "Invalid Phone",
-            message = "Please enter a phone number using numeric digits only.",
-        )
+        trimmedPhone.isBlank() || !trimmedPhone.all { character -> character.isDigit() } -> {
+            ValidationError(
+                title = "Invalid Phone",
+                message = "Please enter a phone number using numeric digits only.",
+            )
+        }
 
-        !emailPattern.matches(email.trim()) -> ValidationError(
-            title = "Invalid Email",
-            message = "Please enter a valid email address (e.g. name@example.com).",
-        )
+        !emailPattern.matches(email.trim()) -> {
+            ValidationError(
+                title = "Invalid Email",
+                message = "Please enter a valid email address (e.g. name@example.com).",
+            )
+        }
 
-        streetAddress.isBlank() -> ValidationError(
-            title = "Missing Street Address",
-            message = "Please enter the contact's street address.",
-        )
+        streetAddress.isBlank() -> {
+            ValidationError(
+                title = "Missing Street Address",
+                message = "Please enter the contact's street address.",
+            )
+        }
 
-        cityState.isBlank() -> ValidationError(
-            title = "Missing City/State",
-            message = "Please enter the contact's city and state.",
-        )
+        cityState.isBlank() -> {
+            ValidationError(
+                title = "Missing City/State",
+                message = "Please enter the contact's city and state.",
+            )
+        }
 
-        trimmedZip.length != 5 || !trimmedZip.all { character -> character.isDigit() } -> ValidationError(
-            title = "Invalid Zip Code",
-            message = "Please enter a valid 5-digit zip code.",
-        )
+        trimmedZip.length != 5 || !trimmedZip.all { character -> character.isDigit() } -> {
+            ValidationError(
+                title = "Invalid Zip Code",
+                message = "Please enter a valid 5-digit zip code.",
+            )
+        }
 
-        else -> null
+        else -> {
+            null
+        }
     }
 }
 
@@ -379,9 +397,10 @@ private fun PhoneTypeDropdownPreview() {
         PhoneTypeDropdown(
             selectedType = "Mobile",
             onTypeSelected = {},
-            modifier = Modifier
-                .padding(16.dp)
-                .width(140.dp),
+            modifier =
+                Modifier
+                    .padding(16.dp)
+                    .width(140.dp),
         )
     }
 }
