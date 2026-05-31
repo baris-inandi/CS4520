@@ -34,6 +34,11 @@ private val LightColorScheme =
      */
     )
 
+/**
+ * 1. What: Applies the app's Material 3 color scheme and typography to composable content.
+ * 2. Who: Called by MainActivity and preview functions.
+ * 3. When: Runs whenever app or preview UI is composed.
+ */
 @Composable
 fun A6_Inandioglu_6696Theme(
     darkTheme: Boolean = isSystemInDarkTheme(),
