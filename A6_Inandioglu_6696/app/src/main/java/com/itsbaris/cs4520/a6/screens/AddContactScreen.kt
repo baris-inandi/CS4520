@@ -1,5 +1,6 @@
 package com.itsbaris.cs4520.a6.screens
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,6 +44,11 @@ import com.itsbaris.cs4520.a6.R
 import com.itsbaris.cs4520.a6.model.Contact
 import com.itsbaris.cs4520.a6.ui.theme.A6_Inandioglu_6696Theme
 
+/**
+ * 1. What: Stores the title and message for one contact form validation error.
+ * 2. Who: Used by validateContactForm and AddContactScreen.
+ * 3. When: Created when a save attempt fails validation.
+ */
 private data class ValidationError(
     val title: String,
     val message: String,
@@ -69,6 +75,11 @@ fun AddContactScreen(
     var zipCode by rememberSaveable { mutableStateOf("") }
     var validationTitle by rememberSaveable { mutableStateOf<String?>(null) }
     var validationMessage by rememberSaveable { mutableStateOf<String?>(null) }
+
+    BackHandler {
+        focusManager.clearFocus()
+        onBack()
+    }
 
     Scaffold(
         topBar = {

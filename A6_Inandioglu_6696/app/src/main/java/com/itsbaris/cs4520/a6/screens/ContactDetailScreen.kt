@@ -192,6 +192,24 @@ private fun ContactDetailScreenPreview() {
 }
 
 /**
+ * 1. What: Previews one labeled detail row component.
+ * 2. Who: Used by Android Studio's preview tooling.
+ * 3. When: Rendered at design time without running the app.
+ */
+@Preview(showBackground = true)
+@Composable
+private fun ContactDetailRowPreview() {
+    A6_Inandioglu_6696Theme {
+        Box(modifier = Modifier.padding(16.dp)) {
+            ContactDetailRow(
+                label = "Email",
+                value = "john.doe@northeastern.edu",
+            )
+        }
+    }
+}
+
+/**
  * 1. What: Previews the missing contact fallback state.
  * 2. Who: Used by Android Studio's preview tooling.
  * 3. When: Rendered at design time without running the app.

@@ -277,6 +277,47 @@ private fun ContactListScreenPopulatedPreview() {
 }
 
 /**
+ * 1. What: Previews the empty contact list message component.
+ * 2. Who: Used by Android Studio's preview tooling.
+ * 3. When: Rendered at design time without running the app.
+ */
+@Preview(showBackground = true)
+@Composable
+private fun EmptyContactListPreview() {
+    A6_Inandioglu_6696Theme {
+        EmptyContactList()
+    }
+}
+
+/**
+ * 1. What: Previews the swipeable contact row component.
+ * 2. Who: Used by Android Studio's preview tooling.
+ * 3. When: Rendered at design time without running the app.
+ */
+@Preview(showBackground = true)
+@Composable
+private fun SwipeableContactRowPreview() {
+    A6_Inandioglu_6696Theme {
+        Column(modifier = Modifier.padding(vertical = 16.dp)) {
+            SwipeableContactRow(
+                contact =
+                    Contact(
+                        name = "John Doe",
+                        phone = "6175551234",
+                        phoneType = "Mobile",
+                        email = "john.doe@northeastern.edu",
+                        streetAddress = "360 Huntington Ave.",
+                        cityState = "Boston, MA",
+                        zipCode = "02120",
+                    ),
+                onClick = {},
+                onDelete = {},
+            )
+        }
+    }
+}
+
+/**
  * 1. What: Previews a single contact card component.
  * 2. Who: Used by Android Studio's preview tooling.
  * 3. When: Rendered at design time without running the app.
