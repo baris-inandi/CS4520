@@ -6,7 +6,11 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.contentOrNull
 
-// Search DTO → domain. Handles all the nullable fields safely.
+/**
+ * 1. What: Converts one search result DTO into the app's Book model.
+ * 2. Who:  Called by BookRepository after search JSON is parsed.
+ * 3. When: Used for each item returned by the search endpoint.
+ */
 fun BookDocDto.toDomain(): Book =
     Book(
         key = key,
@@ -16,7 +20,11 @@ fun BookDocDto.toDomain(): Book =
         subjects = subject ?: emptyList(),
     )
 
-// Detail DTO → domain. Safely handles description being a String, an object, or missing.
+/**
+ * 1. What: Converts a work detail DTO into the app's BookDetail model.
+ * 2. Who:  Called by BookRepository after detail JSON is parsed.
+ * 3. When: Used when a selected book's detail screen loads.
+ */
 fun WorkDetailDto.toDomain(): BookDetail {
     val descriptionText: String =
         when (val d = description) {

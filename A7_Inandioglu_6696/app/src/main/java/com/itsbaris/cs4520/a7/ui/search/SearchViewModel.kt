@@ -56,7 +56,11 @@ class SearchViewModel(
         }
     }
 
-    /** Re-runs the most recent query (used by the Retry button). */
+    /**
+     * 1. What: Re-runs the most recent valid search query.
+     * 2. Who:  Called by SearchScreen's Retry button.
+     * 3. When: Triggered after a search request fails.
+     */
     fun retry() {
         if (lastQuery.isNotBlank()) search(lastQuery)
     }

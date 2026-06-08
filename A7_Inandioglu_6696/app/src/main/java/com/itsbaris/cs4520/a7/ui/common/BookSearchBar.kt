@@ -11,7 +11,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.tooling.preview.Preview
+import com.itsbaris.cs4520.a7.ui.theme.A7_Inandioglu_6696Theme
 
+/**
+ * 1. What: Shows the book search input with search and clear actions.
+ * 2. Who:  Called by SearchScreen.
+ * 3. When: Rendered at the top of the search screen.
+ */
 @Composable
 fun BookSearchBar(
     query: String,
@@ -27,18 +34,54 @@ fun BookSearchBar(
         singleLine = true,
         label = { Text("Search books") },
         leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-        // ✍️ TODO 1 — trailing "clear" button. When `query` is NOT empty, show an
-        //   IconButton that clears the field:
-        //   trailingIcon = {
-        //       if (query.isNotEmpty()) {
-        //           IconButton(onClick = { onQueryChange("") }) {
-        //               Icon(Icons.Default.Clear, contentDescription = "Clear")
-        //           }
-        //       }
-        //   },
-        // ✍️ TODO 2 — show a "Search" action key:
-        //   keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-        // ✍️ TODO 3 — run the search + dismiss the keyboard when that key is tapped:
-        //   keyboardActions = KeyboardActions(onSearch = { keyboard?.hide(); onSearch() }),
+        trailingIcon = {
+            if (query.isNotEmpty()) {
+                IconButton(onClick = { onQueryChange("") }) {
+                    Icon(Icons.Default.Clear, contentDescription = "Clear")
+                }
+            }
+        },
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+        keyboardActions =
+            KeyboardActions(
+                onSearch = {
+                    keyboard?.hide()
+                    onSearch()
+                },
+            ),
     )
+}
+
+/**
+ * 1. What: Previews the search bar before any text is typed.
+ * 2. Who:  Used by Android Studio's preview panel.
+ * 3. When: Checked while reviewing the empty search input state.
+ */
+@Preview(showBackground = true)
+@Composable
+private fun BookSearchBarEmptyPreview() {
+    A7_Inandioglu_6696Theme {
+        BookSearchBar(
+            query = "",
+            onQueryChange = {},
+            onSearch = {},
+        )
+    }
+}
+
+/**
+ * 1. What: Previews the search bar with typed text and a clear button.
+ * 2. Who:  Used by Android Studio's preview panel.
+ * 3. When: Checked while reviewing the filled search input state.
+ */
+@Preview(showBackground = true)
+@Composable
+private fun BookSearchBarFilledPreview() {
+    A7_Inandioglu_6696Theme {
+        BookSearchBar(
+            query = "harry potter",
+            onQueryChange = {},
+            onSearch = {},
+        )
+    }
 }

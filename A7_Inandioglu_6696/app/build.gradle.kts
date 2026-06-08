@@ -6,12 +6,7 @@ plugins {
 
 android {
     namespace = "com.itsbaris.cs4520.a7"
-    compileSdk {
-        version =
-            release(36) {
-                minorApiLevel = 1
-            }
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.itsbaris.cs4520.a7"
