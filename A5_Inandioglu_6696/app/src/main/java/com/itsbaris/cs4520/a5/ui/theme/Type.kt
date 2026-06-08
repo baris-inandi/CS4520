@@ -1,4 +1,4 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696.ui.theme
+package com.itsbaris.cs4520.a5.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

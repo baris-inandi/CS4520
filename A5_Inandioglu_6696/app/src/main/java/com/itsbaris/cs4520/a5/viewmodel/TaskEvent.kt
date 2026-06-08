@@ -1,4 +1,4 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696.viewmodel
+package com.itsbaris.cs4520.a5.viewmodel
 
 /**
  * 1. What: Represents one-time UI events sent by the TaskViewModel.

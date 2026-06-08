@@ -1,4 +1,4 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696.navigation
+package com.itsbaris.cs4520.a5.navigation
 
 import kotlinx.serialization.Serializable
 

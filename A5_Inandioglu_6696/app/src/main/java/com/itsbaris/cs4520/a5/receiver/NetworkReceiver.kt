@@ -1,4 +1,4 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696.receiver
+package com.itsbaris.cs4520.a5.receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context

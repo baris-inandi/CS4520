@@ -1,4 +1,4 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696
+package com.itsbaris.cs4520.a5
 
 import org.junit.Assert.*
 import org.junit.Test

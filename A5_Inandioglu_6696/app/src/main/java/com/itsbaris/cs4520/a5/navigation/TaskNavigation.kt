@@ -1,6 +1,7 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696.navigation
+package com.itsbaris.cs4520.a5.navigation
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -26,14 +27,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.itsbaris.cs4520.a5_inandioglu_6696.model.Task
-import com.itsbaris.cs4520.a5_inandioglu_6696.notifications.TaskNotificationHelper
-import com.itsbaris.cs4520.a5_inandioglu_6696.screens.AddEditTaskScreen
-import com.itsbaris.cs4520.a5_inandioglu_6696.screens.TaskListScreen
-import com.itsbaris.cs4520.a5_inandioglu_6696.screens.TaskStatsScreen
-import com.itsbaris.cs4520.a5_inandioglu_6696.ui.theme.A5_Inandioglu_6696Theme
-import com.itsbaris.cs4520.a5_inandioglu_6696.viewmodel.TaskEvent
-import com.itsbaris.cs4520.a5_inandioglu_6696.viewmodel.TaskViewModel
+import com.itsbaris.cs4520.a5.model.Task
+import com.itsbaris.cs4520.a5.notifications.TaskNotificationHelper
+import com.itsbaris.cs4520.a5.screens.AddEditTaskScreen
+import com.itsbaris.cs4520.a5.screens.TaskListScreen
+import com.itsbaris.cs4520.a5.screens.TaskStatsScreen
+import com.itsbaris.cs4520.a5.ui.theme.A5_Inandioglu_6696Theme
+import com.itsbaris.cs4520.a5.viewmodel.TaskEvent
+import com.itsbaris.cs4520.a5.viewmodel.TaskViewModel
 import kotlinx.coroutines.launch
 
 /**
@@ -146,6 +147,7 @@ fun TaskNavigation(viewModel: TaskViewModel) {
  * 3. When: Rendered during design-time UI inspection.
  */
 @Preview(showBackground = true)
+@SuppressLint("ViewModelConstructorInComposable")
 @Composable
 fun TaskNavigationPreview() {
     A5_Inandioglu_6696Theme {

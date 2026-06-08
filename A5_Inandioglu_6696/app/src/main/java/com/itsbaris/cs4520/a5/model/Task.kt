@@ -1,4 +1,4 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696.model
+package com.itsbaris.cs4520.a5.model
 
 import kotlinx.serialization.Serializable
 

@@ -1,11 +1,11 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696.notifications
+package com.itsbaris.cs4520.a5.notifications
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import androidx.core.app.NotificationCompat
-import com.itsbaris.cs4520.a5_inandioglu_6696.R
-import com.itsbaris.cs4520.a5_inandioglu_6696.model.Task
+import com.itsbaris.cs4520.a5.R
+import com.itsbaris.cs4520.a5.model.Task
 
 object TaskNotificationHelper {
     private const val CHANNEL_ID = "task_reminders"

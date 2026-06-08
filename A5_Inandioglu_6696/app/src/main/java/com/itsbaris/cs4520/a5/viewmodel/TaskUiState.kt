@@ -1,6 +1,6 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696.viewmodel
+package com.itsbaris.cs4520.a5.viewmodel
 
-import com.itsbaris.cs4520.a5_inandioglu_6696.model.Task
+import com.itsbaris.cs4520.a5.model.Task
 
 /**
  * 1. What: Holds the screen state exposed by TaskViewModel.

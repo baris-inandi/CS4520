@@ -1,4 +1,4 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696.screens
+package com.itsbaris.cs4520.a5.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,9 +21,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.itsbaris.cs4520.a5_inandioglu_6696.R
-import com.itsbaris.cs4520.a5_inandioglu_6696.model.Task
-import com.itsbaris.cs4520.a5_inandioglu_6696.viewmodel.TaskUiState
+import com.itsbaris.cs4520.a5.R
+import com.itsbaris.cs4520.a5.model.Task
+import com.itsbaris.cs4520.a5.viewmodel.TaskUiState
 
 /**
  * 1. What: Screen that displays task counts and network sync status.

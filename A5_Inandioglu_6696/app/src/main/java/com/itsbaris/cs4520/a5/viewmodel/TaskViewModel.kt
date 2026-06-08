@@ -1,8 +1,8 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696.viewmodel
+package com.itsbaris.cs4520.a5.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.itsbaris.cs4520.a5_inandioglu_6696.model.Task
+import com.itsbaris.cs4520.a5.model.Task
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

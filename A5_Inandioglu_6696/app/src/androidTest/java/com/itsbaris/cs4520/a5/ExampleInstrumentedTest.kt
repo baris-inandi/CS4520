@@ -1,4 +1,4 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696
+package com.itsbaris.cs4520.a5
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.itsbaris.cs4520.a5_inandioglu_6696", appContext.packageName)
+        assertEquals("com.itsbaris.cs4520.a5", appContext.packageName)
     }
 }

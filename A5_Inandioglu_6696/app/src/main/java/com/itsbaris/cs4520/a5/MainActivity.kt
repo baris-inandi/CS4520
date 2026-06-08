@@ -1,4 +1,4 @@
-package com.itsbaris.cs4520.a5_inandioglu_6696
+package com.itsbaris.cs4520.a5
 
 import android.content.IntentFilter
 import android.net.ConnectivityManager
@@ -7,12 +7,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import com.itsbaris.cs4520.a5_inandioglu_6696.navigation.TaskNavigation
-import com.itsbaris.cs4520.a5_inandioglu_6696.notifications.TaskNotificationHelper
-import com.itsbaris.cs4520.a5_inandioglu_6696.receiver.NetworkReceiver
-import com.itsbaris.cs4520.a5_inandioglu_6696.receiver.isNetworkAvailable
-import com.itsbaris.cs4520.a5_inandioglu_6696.ui.theme.A5_Inandioglu_6696Theme
-import com.itsbaris.cs4520.a5_inandioglu_6696.viewmodel.TaskViewModel
+import com.itsbaris.cs4520.a5.navigation.TaskNavigation
+import com.itsbaris.cs4520.a5.notifications.TaskNotificationHelper
+import com.itsbaris.cs4520.a5.receiver.NetworkReceiver
+import com.itsbaris.cs4520.a5.receiver.isNetworkAvailable
+import com.itsbaris.cs4520.a5.ui.theme.A5_Inandioglu_6696Theme
+import com.itsbaris.cs4520.a5.viewmodel.TaskViewModel
 
 class MainActivity : ComponentActivity() {
     private val taskViewModel: TaskViewModel by viewModels()

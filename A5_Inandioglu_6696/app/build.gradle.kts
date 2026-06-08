@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.itsbaris.cs4520.a5_inandioglu_6696"
+    namespace = "com.itsbaris.cs4520.a5"
     compileSdk {
         version =
             release(36) {
@@ -14,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.itsbaris.cs4520.a5_inandioglu_6696"
+        applicationId = "com.itsbaris.cs4520.a5"
         minSdk = 28
         targetSdk = 36
         versionCode = 1
