@@ -3,17 +3,17 @@ package com.itsbaris.cs4520.a7.ui.detail
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.AsyncImage
 import com.itsbaris.cs4520.a7.model.BookDetail
 import com.itsbaris.cs4520.a7.ui.theme.A7_Inandioglu_6696Theme
 
@@ -38,7 +38,11 @@ fun BookDetailScreen(
         topBar = {
             TopAppBar(
                 title = { Text("Book Details") },
-                navigationIcon = { IconButton(onClick = onBack) { Text("←") } },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                    }
+                },
             )
         },
     ) { padding ->
@@ -81,13 +85,11 @@ private fun BookDetailContent(
                 .padding(16.dp),
     ) {
         if (detail.coverId != null) {
-            AsyncImage(
-                model = "https://covers.openlibrary.org/b/id/${detail.coverId}-M.jpg",
-                contentDescription = "Cover of ${detail.title}",
-                modifier = Modifier.align(Alignment.CenterHorizontally).size(180.dp),
-                contentScale = ContentScale.Fit,
+            BookCoverImage(
+                title = detail.title,
+                coverId = detail.coverId,
             )
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(24.dp))
         }
 
         Text(
